@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,6 +36,9 @@ public class DealerController {
 	}
 	
 	
+	//API - 1 
+	// It adds the dealers details into the H2- database
+	
 	@PostMapping("/dealer")
 	@ResponseBody
 	public void addNewDealer(@RequestParam(value="name") String name,
@@ -64,7 +65,8 @@ public class DealerController {
 	}
 	
 	
-	
+	//API - 2 (a)
+	// Given the postcode of the customer place, it returns the nearest dealer information
 	@GetMapping("/dealer")
 	@ResponseBody
 	public GetDealersResponse showAllNeighbourDealersByPostcode(@RequestParam(value="postcode") Long postcode ) throws IOException, URISyntaxException {
@@ -77,6 +79,9 @@ public class DealerController {
 	}
 	
 	
+	//API - 2 (b)
+	// Given the latitude and longitude of the customer place, it returns the nearest dealer information
+	
 	@GetMapping("/dealers")
 	@ResponseBody
 	public GetDealersResponse showAllNeighbourDealersByLat_Lon(@RequestParam(value="lat") Double latitude,
@@ -88,10 +93,5 @@ public class DealerController {
 	    return getDealersResponse; 	
 	}
 	
-	
-	
-	
-	
-	
-	
+
 }

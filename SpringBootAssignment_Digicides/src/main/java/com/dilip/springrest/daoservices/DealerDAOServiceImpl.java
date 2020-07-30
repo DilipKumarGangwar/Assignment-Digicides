@@ -15,7 +15,7 @@ public class DealerDAOServiceImpl implements DealerDAOService {
 	@Autowired
 	DealerDAO dealerRepo;
 	
-	
+	// Returns  the distance between 2 latitude, longitudes
 	Double findDistance(Double latitude1,Double longitude2, Double latitude2, Double longitude1) {
 		
 		
@@ -70,7 +70,7 @@ public class DealerDAOServiceImpl implements DealerDAOService {
 		//add nearest dealer in result list
 		result.add(dealerlist.get(nearest_dealer_index));
 		
-		//return the result
+		//return the nearest dealer info
 		return result;
 	}
 
